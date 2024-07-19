@@ -1,4 +1,4 @@
-﻿
+
 namespace TelCo.ColorCoder
 {
     public class ColorCode : ColorPairs
@@ -27,34 +27,45 @@ namespace TelCo.ColorCoder
 
         public int GetPairNumberFromColor(ColorPair pair)
         {
-            int majorColorIndex = -1;
-            for (int i = 0; i < majorColorMapping.Length; i++)
-            {
-                if (majorColorMapping[i] == pair.majorColor)
-                {
-                    majorColorIndex = i;
-                    break;
-                }
-            }
+            int majorColorIndex = getMajorColorIndex(pair);
+            int minorColorIndex = getMinorClorIndex(pair);
 
-            int minorColorIndex = -1;
-            for (int i = 0; i < minorColorMapping.Length; i++)
-            {
-                if (minorColorMapping[i] == pair.minorColor)
-                {
-                    minorColorIndex = i;
-                    break;
-                }
-            }
-            // If colors can not be found throw an exception
             if (majorColorIndex == -1 || minorColorIndex == -1)
             {
                 throw new ArgumentException(
                     string.Format("Unknown Colors: {0}", pair.ToString()));
             }
 
-            // (Note: +1 in compute is because pair number is 1 based, not zero)
             return (majorColorIndex * minorColorMapping.Length) + (minorColorIndex + 1);
+        }
+
+        private int getMajorColorIndex(ColorPair pair)
+        {
+
+            for (int i = 0; i < majorColorMapping.Length; i++)
+            {
+                int colorIndex = -1;
+                if (majorColorMapping[i] == pair.majorColor)
+                {
+                    colorIndex = i;
+                    break;
+                }
+            }
+            return colorIndex;
+        } 
+
+        private int getMinorClorIndex(ColorPair pair)
+        {
+            int colorIndex = -1;
+            for (int i = 0; i < minorColorMapping.Length; i++)
+            {
+                if (minorColorMapping[i] == pair.minorColor)
+                {
+                    colorIndex = i;
+                    break;
+                }
+            }
+            return colorIndex;
         }
     }
 }

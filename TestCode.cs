@@ -4,10 +4,11 @@ using System.Drawing;
 namespace TelCo.ColorCoder
 {
 
-    class TestCode : ColorCode
+    class TestCode : ColorPair
     {
         static void Main(string[] args)
         {
+
             var ColorCode = new ColorCode();
             int pairNumber = 4;
             ColorPair testPair1 = ColorCode.GetColorFromPairNumber(pairNumber);

@@ -20,7 +20,7 @@ namespace TelCo.ColorCoder
             int majorColorIndex = zeroBasedPairNumber / minorColorsCount;
             int minorColorIndex = zeroBasedPairNumber % minorColorsCount;
 
-            ColorPair pair = new ColorPair() { majorColor = majorColorMapping[majorColorIndex], minorColor = majorColorMapping[minorColorIndex] };
+            ColorPair pair = new ColorPair() { majorColor = majorColorMapping[majorColorIndex], minorColor = minorColorMapping[minorColorIndex] };
 
             return pair;
         }

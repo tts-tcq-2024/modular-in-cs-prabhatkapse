@@ -14,7 +14,7 @@ namespace TelCo.ColorCoder
             ColorPair testPair1 = ColorCode.GetColorFromPairNumber(pairNumber);
             Console.WriteLine("[In]Pair Number: {0},[Out] Colors: {1}\n", pairNumber, testPair1);
             Debug.Assert(testPair1.majorColor == Color.White);
-            Debug.Assert(testPair1.minorColor == Color.Brown);
+            Debug.Assert(testPair1.minorColor == Color.Yellow);
 
             pairNumber = 5;
             testPair1 = ColorCode.GetColorFromPairNumber(pairNumber);
